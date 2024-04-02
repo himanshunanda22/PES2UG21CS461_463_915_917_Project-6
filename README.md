@@ -22,22 +22,6 @@ The application includes the following microservices:
 - **Jenkins**: For continuous integration and deployment.
 - **Git**: For version control and code management.
 
-## Project Structure
-
-The project is structured as follows:
-
-- user-service/: Contains the user management microservice.
-- product-service/: Contains the product management microservice.
-- order-service/: Contains the order management microservice.
-- review-service/: Contains the review management microservice - (optional).
-- kubernetes/: Contains Kubernetes deployment manifests and service definitions.
-- jenkins/: Contains Jenkins configuration files and Jenkinsfile for the CI/CD pipeline.
-
-
-- Each microservice has its own directory containing the source code and a `Dockerfile` for building the Docker image.
-- The `kubernetes/` directory contains the Kubernetes deployment manifests and service definitions.
-- The `jenkins/` directory contains the Jenkins configuration files and `Jenkinsfile` for the CI/CD pipeline.
-
 ## Getting Started
 
 To get started with the project, follow these steps:
