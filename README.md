@@ -27,7 +27,7 @@ The application includes the following microservices:
 To get started with the project, follow these steps:
 
 1. Clone the repository:
-git clone https://github.com/your-repo/e-commerce-microservices.git
+git clone [https://github.com/your-repo/e-commerce-microservices.git](https://github.com/himanshunanda22/PES2UG21CS461_463_915_917_Project-6.git)
 
 2. Build and run the Docker images for each microservice:
 cd e-commerce-microservices/user-service
