@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: products-user-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: products-user
+  template:
+    metadata:
+      labels:
+        app: products-user
+    spec:
+      containers:
+        - name: products-user
+          image: himanshunanda22/project-6:products-user
+          ports:
+            - containerPort: 3000

@@ -1,0 +1,34 @@
+Start first with building the docker images
+
+docker build -t auth-login:latest -f app/api/auth/login/Dockerfile .
+docker build -t products-id:latest -f app/api/products/[id]/Dockerfile .
+docker build -t products-user:latest -f app/api/products/user/Dockerfile .
+docker build -t user:latest -f app/api/User/[id]/Dockerfile .
+
+Thereafter tagging the images
+
+docker tag auth-login himanshunanda22/project-6:auth-login
+docker tag products-id himanshunanda22/project-6:products-id
+docker tag products-user himanshunanda22/project-6:products-user
+docker tag user himanshunanda22/project-6:user
+
+After tagging, you can push each image to Docker Hub:
+
+docker push himanshunanda22/project-6:auth-login
+docker push himanshunanda22/project-6:products-id
+docker push himanshunanda22/project-6:products-user 
+docker push himanshunanda22/project-6:user
+
+After these commands for kubernetes deployements and services
+
+kubectl apply -f kubernetes/auth/login/auth-login-deployment.yaml
+kubectl apply -f kubernetes/auth/login/auth-login-service.yaml
+
+kubectl apply -f kubernetes/products/[id]/products-id-deployment.yaml
+kubectl apply -f kubernetes/products/[id]/products-id-service.yaml
+
+kubectl apply -f kubernetes/products/user/products-user-deployment.yaml
+kubectl apply -f kubernetes/products/user/products-user-service.yaml
+
+kubectl apply -f kubernetes/User/User-deployment.yaml
+kubectl apply -f kubernetes/User/User-service.yaml

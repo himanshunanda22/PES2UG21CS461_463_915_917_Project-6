@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: auth-login-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: auth-login
+  template:
+    metadata:
+      labels:
+        app: auth-login
+    spec:
+      containers:
+        - name: auth-login
+          image:  himanshunanda22/project-6:auth-login
+          ports:
+            - containerPort: 3000
