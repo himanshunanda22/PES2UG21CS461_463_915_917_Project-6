@@ -1,0 +1,31 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Checkout') {
+            steps {
+                checkout scm
+            }
+        }
+
+        stage('Build') {
+            steps {
+                sh 'docker build -t auth-login:latest -f app/api/auth/login/Dockerfile .'
+            }
+        }
+
+        stage('Test') {
+            steps {
+                // Add commands to run tests for the `auth` microservice
+                sh 'npm run test'
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                sh 'kubectl apply -f kubernetes/auth/auth-deployment.yaml'
+                sh 'kubectl apply -f kubernetes/auth/auth-service.yaml'
+            }
+        }
+    }
+}

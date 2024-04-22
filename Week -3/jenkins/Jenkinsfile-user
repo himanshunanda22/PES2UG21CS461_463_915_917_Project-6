@@ -1,0 +1,31 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Checkout') {
+            steps {
+                checkout scm
+            }
+        }
+
+        stage('Build') {
+            steps {
+                sh 'docker build -t user:latest -f app/api/User/[id]/Dockerfile .'
+            }
+        }
+
+        stage('Test') {
+            steps {
+                // Add commands to run tests for the `user` microservice
+                sh 'npm run test'
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                sh 'kubectl apply -f kubernetes/User/User-deployment.yaml'
+                sh 'kubectl apply -f kubernetes/User/User-service.yaml'
+            }
+        }
+    }
+}

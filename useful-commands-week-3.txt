@@ -1,0 +1,6 @@
+To start jenkins:
+docker pull jenkins/jenkins:lts
+<the above command is just one time, afterwards to start jenkins use the next commands>
+docker run --name jenkins-server -d -p 8080:8080 -p 50000:50000 -v jenkins_home:/var/jenkins_home jenkins/jenkins:lts
+<then start the http://localhost:8080, in any browser>
+<for password, open docker desktop, go to containers, find jenkins, click on it, go to files sections, find this /var/jenkins_home/secrets/initialAdminPassword , the initialAdminPassword has the actual password, click on this file save and rest you know I suppose>
